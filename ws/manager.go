@@ -39,7 +39,7 @@ func (m *Manager) setupEventHandlers() {
 }
 
 func SendMessage(event Event, c *Client) error {
-	fmt.Println(event, "123")
+
 	for c, _ := range c.manager.clients {
 		c.egress <- event
 	}
