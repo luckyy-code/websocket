@@ -2,6 +2,7 @@ package ws
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/gorilla/websocket"
 	"log"
 	"time"
@@ -62,6 +63,8 @@ func (c *Client) readMessages() {
 			log.Println("error marshalling event:", err)
 			break
 		}
+
+		fmt.Println(payload)
 
 		err = c.manager.routeEvent(request, c)
 		if err != nil {
